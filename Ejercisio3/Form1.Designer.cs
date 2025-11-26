@@ -1,4 +1,5 @@
-﻿namespace Ejercisio3
+﻿
+namespace Ejercisio3
 {
     partial class Form1
     {
@@ -51,15 +52,17 @@
             TboxParrafo.Name = "TboxParrafo";
             TboxParrafo.Size = new Size(251, 23);
             TboxParrafo.TabIndex = 1;
+            TboxParrafo.TextChanged += TboxParrafo_TextChanged;
             // 
             // BtnBuscar
             // 
-            BtnBuscar.Location = new Point(634, 39);
+            BtnBuscar.Location = new Point(603, 37);
             BtnBuscar.Name = "BtnBuscar";
             BtnBuscar.Size = new Size(95, 29);
             BtnBuscar.TabIndex = 2;
             BtnBuscar.Text = "BtnBuscar";
             BtnBuscar.UseVisualStyleBackColor = true;
+            BtnBuscar.Click += BtnBuscar_Click;
             // 
             // TboxPalabra
             // 
@@ -67,6 +70,7 @@
             TboxPalabra.Name = "TboxPalabra";
             TboxPalabra.Size = new Size(100, 23);
             TboxPalabra.TabIndex = 3;
+            TboxPalabra.TextChanged += TboxPalabra_TextChanged;
             // 
             // label2
             // 
@@ -81,10 +85,11 @@
             // 
             LboxResultados.FormattingEnabled = true;
             LboxResultados.ItemHeight = 15;
-            LboxResultados.Location = new Point(231, 86);
+            LboxResultados.Location = new Point(230, 102);
             LboxResultados.Name = "LboxResultados";
-            LboxResultados.Size = new Size(253, 199);
+            LboxResultados.Size = new Size(253, 259);
             LboxResultados.TabIndex = 5;
+            LboxResultados.SelectedIndexChanged += LboxResultados_SelectedIndexChanged;
             // 
             // Form1
             // 
@@ -99,8 +104,14 @@
             Controls.Add(label1);
             Name = "Form1";
             Text = "Form1";
+            NewMethod();
             ResumeLayout(false);
             PerformLayout();
+        }
+
+        private void NewMethod()
+        {
+            Load += Form1_Load;
         }
 
         #endregion
@@ -111,5 +122,7 @@
         private TextBox TboxPalabra;
         private Label label2;
         private ListBox LboxResultados;
+
+        public EventHandler Form1_Load { get; private set; }
     }
 }
